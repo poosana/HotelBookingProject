@@ -7,6 +7,15 @@
 using namespace std;
 
 //สุ่มPackage
+string randompackage(string);
+
+int main(){
+    cout<<setw(30)<<"Welcome to TPC hotel.\n";
+    cout<<setw(60)<<"For your best experience We have create an online service.\n";
+    cout<<setw(30)<<"Is there anything I can help you?\n";
+    cout<<setw(20)<<"1.Find aviable room."<<setw(20)<<"2.Check out";
+}
+
 string randompackage(string x){
     while(x=="YES" || x=="yes"){
         srand(time(0));
@@ -19,8 +28,6 @@ string randompackage(string x){
     return "OK Your welcome. :) ";   
 }
 
-int main(){
-    cout<<setw(30)<<"Welcome to TPC hotel.\n";
-    cout<<setw(60)<<"For your best experience We have create an online service.\n";
-    cout<<setw(60)<<"Is there anything I can help you?";
+string checkout(){
+    
 }
