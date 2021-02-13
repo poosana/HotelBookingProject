@@ -9,12 +9,15 @@ using namespace std;
 //สุ่มPackage
 string randompackage(string);
 
-int main(){
+//เช็คบัตรเครดิต
+double checkCreditcard(int);
+
+/*int main(){
     cout<<setw(30)<<"Welcome to TPC hotel.\n";
     cout<<setw(60)<<"For your best experience We have create an online service.\n";
     cout<<setw(30)<<"Is there anything I can help you?\n";
     cout<<setw(20)<<"1.Find aviable room."<<setw(20)<<"2.Check out";
-}
+}*/
 
 string randompackage(string x){
     while(x=="YES" || x=="yes"){
@@ -28,6 +31,19 @@ string randompackage(string x){
     return "OK Your welcome. :) ";   
 }
 
-string checkout(){
-    
+void checkCreditcard(){
+    string a;
+    cout<<"Please press card number: ";
+    cin>>a;
+    int b = a.size();
+    while(b != 13){
+        cout<<"Seem like you press wrong number.Please press again: ";
+        cin>>a;
+        b = a.size();
+        }
+    cout<<"Payment done,Thank you.";
+}
+
+int main(){
+    checkCreditcard();
 }
