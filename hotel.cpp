@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include<iomanip>
 
 using namespace std;
 
@@ -16,7 +17,10 @@ string randompackage(string x){
         else  return "You just got stay 2 nights free 1 night." ;
     }
     return "OK Your welcome. :) ";   
-   }
+}
 
 int main(){
+    cout<<setw(30)<<"Welcome to TPC hotel.\n";
+    cout<<setw(60)<<"For your best experience We have create an online service.\n";
+    cout<<setw(60)<<"Is there anything I can help you?";
 }
