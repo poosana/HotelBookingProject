@@ -43,6 +43,22 @@ void checkCreditcard(){
         }
     cout<<"Payment done,Thank you.";
 }
+void findAviableroom(){
+    int guest,date,month,year,type;
+    cout<<setw(30)<<"find aviable room.\n";
+    cout<<"How many guest is the reservation for:  ";
+    cin>>guest;
+    cout<<"what is the date of your arrival?\n";
+    cout<<"date: ";
+    cin>>date;
+    cout<<"month: ";
+    cin>>month;
+    cout<<"year: ";
+    cin>>year;
+    roomtype(guest);
+    cout<<"Please select room type: ";
+    cin>>type;
+}
 
 int main(){
     checkCreditcard();
