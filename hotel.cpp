@@ -12,7 +12,26 @@ void checkCreditcard(){
 }
 
 //บริการเสริม(แชม)
-double addition(){
+double addition(int checkin)
+{
+    double bed, breakfast,total = 0;
+
+    cout << "\nNo. of extra bed(1 bed = 100 THB/night): ";
+    cin >> bed;
+    cout << endl;
+    cout << "No. of package for breakfast(150 THB/package): ";
+    cin >> breakfast;
+    cout << endl;
+
+    bed = bed * 100 * checkin;
+    breakfast = breakfast * 150 * checkin;
+    total=total+bed+breakfast;
+
+    cout<<"Extra bed: "<<bed<<" THB.\n";
+    cout<<"Breakfast package: "<<breakfast<<" THB.\n";
+    cout<<"Total: "<<total<<" THB."; 
+    cin.get();
+	return total;
 }
 
 //บอกรายละเอียดการจอง(ภู)
