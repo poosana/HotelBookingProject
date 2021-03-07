@@ -8,15 +8,43 @@ using namespace std;
 
 //เช็คบัตรเครดิต(บัต)
 void checkCreditcard(){
+    string a;
+    cout<<"Please press card number: ";
+    cin>>a;
+    int b = a.size();
+    while(b != 13){
+        cout<<"Seem like you press wrong number.Please press again: ";
+        cin>>a;
+        b = a.size();
+        }
+    cout<<"Payment done,Thank you.";
 }
 
 //บริการเสริม(แชม)
-double addition(){
+double addition(int checkin)
+{
+    double bed, breakfast,total = 0;
 
+    cout << "\nNo. of extra bed(1 bed = 100 THB/night): ";
+    cin >> bed;
+    cout << endl;
+    cout << "No. of package for breakfast(150 THB/package): ";
+    cin >> breakfast;
+    cout << endl;
+
+    bed = bed * 100 * checkin;
+    breakfast = breakfast * 150 * checkin;
+    total=total+bed+breakfast;
+
+    cout<<"Extra bed: "<<bed<<" THB.\n";
+    cout<<"Breakfast package: "<<breakfast<<" THB.\n";
+    cout<<"Total: "<<total<<" THB."; 
+    cin.get();
+	return total;
 }
 
 //บอกรายละเอียดการจอง(ภู)
-void detail(double sum, double addf, string name, string address, string phonenum, int room, int people, int day1, int month1, int year1, int day2, int month2, int year2, int days)
+void detail(double sum, double addf, string name, string phonenum, int room, int people, int day1, int month1, int year1, int day2, int month2, int year2, int days)
 {
 
     double tax = 0;
@@ -54,7 +82,7 @@ void detail(double sum, double addf, string name, string address, string phonenu
     cout << "Final Total \t\t: " << total << " THB" << endl;
     cout<<"---------------------------------------------" << endl;
 }
-/คิดจำนวนวันที่อยู่(ภู)
+//คิดจำนวนวันที่อยู่(ภู)
 double date(int day1, int month1, int year, int day2, int month2, int year4, int room)
 {
     int i;
@@ -82,7 +110,6 @@ double date(int day1, int month1, int year, int day2, int month2, int year4, int
 int main()
 {
     string name;
-    string address;
     string phonenum;
     string add;
     int room;
@@ -190,7 +217,7 @@ start:
     }
     cout << addf << endl;
     system("cls");
-    detail(sum, addf, name, address, phonenum, room, people, day1, month1, year1, day2, month2, year2, days);
+    detail(sum, addf, name,phonenum, room, people, day1, month1, year1, day2, month2, year2, days);
     string choice;
     cout << "Please select you payment method (1.cash / 2.Credit card)" << endl;
     cin >> choice;
