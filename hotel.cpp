@@ -9,6 +9,16 @@ using namespace std;
 
 //เช็คบัตรเครดิต(บัต)
 void checkCreditcard(){
+    string a;
+    cout<<"Please press card number: ";
+    cin>>a;
+    int b = a.size();
+    while(b != 13){
+        cout<<"Seem like you press wrong number.Please press again: ";
+        cin>>a;
+        b = a.size();
+        }
+    cout<<"Payment done,Thank you.";
 }
 
 //บริการเสริม(แชม)
