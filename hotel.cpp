@@ -1,14 +1,24 @@
-#include <cmath>
 #include <iostream>
+#include <cmath>
 #include <iomanip>
 #include <fstream>
-#include <stdlib.h>
+#include <cstdlib>
 #include <ctime>
 #include <string>
 using namespace std;
 
 //เช็คบัตรเครดิต(บัต)
 void checkCreditcard(){
+    string a;
+    cout<<"Please press card number: ";
+    cin>>a;
+    int b = a.size();
+    while(b != 13){
+        cout<<"Seem like you have pressed wrong number.Please press again: ";
+        cin>>a;
+        b = a.size();
+    }
+    cout<<"Payment done,Thank you.";
 }
 
 //บริการเสริม(แชม)
