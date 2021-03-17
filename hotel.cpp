@@ -7,7 +7,7 @@
 #include <string>
 using namespace std;
 
-//เช็คบัตรเครดิต(บัต)
+
 void checkCreditcard(){
     string a;
     cout<<"Please press card number: ";
@@ -21,7 +21,6 @@ void checkCreditcard(){
     cout<<"Payment done,Thank you.";
 }
 
-//บริการเสริม(แชม)
 double addition(int checkin)
 {
     double bed, breakfast,total = 0;
@@ -44,8 +43,8 @@ double addition(int checkin)
 	return total;
 }
 
-//บอกรายละเอียดการจอง(ภู)
-void detail(double sum, double addf, string name, string address, string phonenum, int room, int people, int day1, int month1, int year1, int day2, int month2, int year2, int days)
+
+void detail(double sum, double addf, string name, string phonenum, int room,string roomSelect, int people, int day1, int month1, int year1, int day2, int month2, int year2, int days)
 {
 
     double tax = 0;
@@ -72,6 +71,7 @@ void detail(double sum, double addf, string name, string address, string phonenu
     cout << "Phone Number : " << phonenum << endl
          << endl;
     cout << "Room \t\t\t: " << room_type << endl;
+    cout << "Room No.\t\t"<<
     cout << "guest \t\t\t: " << people << " people" << endl;
     cout << "Check in date\t\t: " << day1 << "/" << month1 << "/" << year1 << endl;
     cout << "Check out date\t\t: " << day2 << "/" << month2 << "/" << year2 << endl;
@@ -84,7 +84,7 @@ void detail(double sum, double addf, string name, string address, string phonenu
     cout<<"---------------------------------------------" << endl;
 }
 
-//คิดจำนวนวันที่อยู่(ภู)
+
 double date(int day1, int month1, int year, int day2, int month2, int year4, int room)
 {
     int i;
@@ -112,9 +112,11 @@ double date(int day1, int month1, int year, int day2, int month2, int year4, int
 int main()
 {
     string name;
-    string address;
     string phonenum;
     string add;
+  string standard[] = {"101","102","103","104","105"};
+	string deluxe[] = {"201","202","203","204","205"};
+	string roomSelect;
     int room;
     int people;
     int day1, month1, year1;
@@ -129,7 +131,7 @@ start:
     cout << "\n\t\t\t\t      * MAIN MENU *";
     cout << "\n\t\t\t\t*************************";
 
-    cout << "\n\nEnter the check in date:\n\n"
+    cout << "\n\nEnter the check in date:\n"
          << endl;
     ;
     cin >> day1 >> month1 >> year1;
@@ -148,6 +150,40 @@ start:
     cout << "Press '1' for standard room (1300 THB/night)" << endl;
     cout << "Press '2' for deluxe room (3200 THB/night)" << endl;
     cin >> room;
+     if(room == 1){
+    	cout << "Standard room aviable: ";
+    	for(i = 0; i < 5; i++){
+    		if(standard[i] != "0"){
+    			cout << standard[i] + " ";
+			}
+    		
+		}
+		cout << " " << endl;
+    	cout << "Please select room: " ;
+    	cin >> roomSelect;
+    	for(i = 0; i < 5; i++){
+    		if(roomSelect == standard[i]){
+    			standard[i] = "0";
+			}
+		}
+	}
+	 if(room == 2){
+    	cout << "Deluxe room aviable: ";
+    	for(i = 0; i < 5; i++){
+    		if(deluxe[i] != "0"){
+    			cout << deluxe[i] + " ";
+			}
+    		
+		}
+		cout << " " << endl;
+    	cout << "Please select room: " ;
+    	cin >> roomSelect;
+    	for(i = 0; i < 5; i++){
+    		if(roomSelect == deluxe[i]){
+    			deluxe[i] = "0";
+			}	
+		}
+	}
     cout << "Enter your check out date" << endl;
     cin >> day2 >> month2 >> year2;
     year4 = year2 - 1900;
@@ -155,12 +191,12 @@ start:
     double sum = 0;
     double addf = 0;
 
-    //คำนวณราคา(แชม)
+
     if (people <= 2 && people > 0)
     {
         if (room == 1)
         {
-            for (i = 2; i <= days; i++)
+            for (i = 1; i <= days; i++)
             {
                 sum += 1300;
             }
@@ -168,7 +204,7 @@ start:
 
         else if (room == 2)
         {
-            for (i = 2; i <= days; i++)
+            for (i = 1; i <= days; i++)
             {
                 sum += 3200;
             }
@@ -178,7 +214,7 @@ start:
     {
         if (room == 1)
         {
-            for (i = 2; i <= days; i++)
+            for (i = 1; i <= days; i++)
             {
                 sum += 1300;
             }
@@ -186,7 +222,7 @@ start:
 
         else if (room == 2)
         {
-            for (i = 2; i <= days; i++)
+            for (i = 0; i <= days; i++)
             {
                 sum += 3200;
             }
@@ -196,7 +232,7 @@ start:
     {
         if (room == 1)
         {
-            for (i = 2; i <= days; i++)
+            for (i = 1; i <= days; i++)
             {
                 sum += 1300;
             }
@@ -204,7 +240,7 @@ start:
 
         else if (room == 2)
         {
-            for (i = 2; i <= days; i++)
+            for (i = 1; i <= days; i++)
             {
                 sum += 3200;
             }
@@ -221,17 +257,26 @@ start:
     }
     cout << addf << endl;
     system("cls");
-    detail(sum, addf, name, address, phonenum, room, people, day1, month1, year1, day2, month2, year2, days);
+    detail(sum, addf, name, phonenum, room,roomSelect, people, day1, month1, year1, day2, month2, year2, days);
     string choice;
     cout << "Please select you payment method (1.cash / 2.Credit card)" << endl;
     cin >> choice;
     if (choice == "1")
     {
         cout<<"Booking done,Thank you.";
-        return 0;
     }
     else if (choice == "2")
     {
         checkCreditcard();
     }
+    string more;
+    cout<<"Do you want to book another room?(yes/no): ";
+    cin>>more;
+    if(more == "YES" || more == "yes"){
+    	goto start;
+	}else{
+	return 0;
+	}
+	
+	
 }
