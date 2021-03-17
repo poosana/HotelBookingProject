@@ -71,7 +71,7 @@ void detail(double sum, double addf, string name, string phonenum, int room,stri
     cout << "Phone Number : " << phonenum << endl
          << endl;
     cout << "Room \t\t\t: " << room_type << endl;
-    cout << "Room No.\t\t"<<
+    cout << "Room No.\t\t: " <<roomSelect<<endl;
     cout << "guest \t\t\t: " << people << " people" << endl;
     cout << "Check in date\t\t: " << day1 << "/" << month1 << "/" << year1 << endl;
     cout << "Check out date\t\t: " << day2 << "/" << month2 << "/" << year2 << endl;
@@ -114,8 +114,8 @@ int main()
     string name;
     string phonenum;
     string add;
-  string standard[] = {"101","102","103","104","105"};
-	string deluxe[] = {"201","202","203","204","205"};
+  string standard[] = {"s1","s2","s3","s4","s5"};
+	string deluxe[] = {"d1","d2","d3","d4","d5"};
 	string roomSelect;
     int room;
     int people;
@@ -270,13 +270,11 @@ start:
         checkCreditcard();
     }
     string more;
-    cout<<"Do you want to book another room?(yes/no): ";
+    cout<<"\nDo you want to book another room?(yes/no): ";
     cin>>more;
     if(more == "YES" || more == "yes"){
     	goto start;
 	}else{
 	return 0;
-	}
-	
-	
+	}	
 }
