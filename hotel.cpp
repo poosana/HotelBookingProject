@@ -8,17 +8,23 @@
 using namespace std;
 
 
-void checkCreditcard(){
-    string a;
+void checkCreditcard(string name){
+	string cardtype;    
+	string a,b,c,d;
     cout<<"Please press card number: ";
-    cin>>a;
-    int b = a.size();
-    while(b != 13){
+    cin>>a >>b>>c>>d;
+    int e = a.size()+b.size()+c.size()+d.size();
+    while(e != 16){
         cout<<"Seem like you have pressed wrong number.Please press again: ";
         cin>>a;
-        b = a.size();
+        e = a.size()+b.size()+c.size()+d.size();
     }
-    cout<<"Payment done,Thank you.";
+    cout<<"------------------------------\n";
+    cout<<"\t\t Reciept.\n";
+    cout<<"------------------------------\n";
+    cout<<"Card owner: "<<name<<endl;
+    cout<<"Card number: "<<a<<" "<<b<<" "<<c<<" "<<d;
+    cout<<"\nPayment done,Thank you.";
 }
 
 double addition(int checkin)
@@ -114,7 +120,7 @@ int main()
     string name;
     string phonenum;
     string add;
-  string standard[] = {"s1","s2","s3","s4","s5"};
+  	string standard[] = {"s1","s2","s3","s4","s5"};
 	string deluxe[] = {"d1","d2","d3","d4","d5"};
 	string roomSelect;
     int room;
@@ -184,7 +190,7 @@ start:
 			}	
 		}
 	}
-    cout << "Enter your check out date" << endl;
+    cout << "Enter your check out date: " << endl;
     cin >> day2 >> month2 >> year2;
     year4 = year2 - 1900;
     double days = date(day1, month1, year, day2, month2, year4, room);
@@ -267,7 +273,7 @@ start:
     }
     else if (choice == "2")
     {
-        checkCreditcard();
+        checkCreditcard(name);
     }
     string more;
     cout<<"\nDo you want to book another room?(yes/no): ";
@@ -275,6 +281,6 @@ start:
     if(more == "YES" || more == "yes"){
     	goto start;
 	}else{
-	return 0;
+	return 0; 
 	}	
 }
