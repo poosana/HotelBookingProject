@@ -1,0 +1,64 @@
+            			   Welcome to TPC hotel.
+				Due to covid-19 situation.     
+                             We have create an online service .
+
+                                *************************      
+                                 HOTEL BOOKING SERVICE         
+                                      * MAIN MENU *
+                                *************************
+
+Enter the check in date:
+(input)   	2 2 2021
+	system("cls")
+
+2/2/2021
+Enter your name:
+(input)Poosana Thassanavisut
+Enter your phone number:
+(input)0625291542
+How many guest is the reservation for:(จำนวนคนที่เข้าพัก)
+(input)3
+Choose room type
+Press '1' for standard room (1300 THB/night)
+Press '2' for deluxe room (3200 THB/night)  (เลือกประเภทห้อง)
+(input)1
+Standard room aviable: 101 102 103 104 105
+Please select room:
+(input)101
+Enter your check out date:
+(input)		3 2 2021
+	system("cls")
+
+Do you want an addition of extra bed or any other services ? Type yes or no
+(input) yes
+No. of extra bed(1 bed = 100 THB/night): 1
+No. of package for breakfast(150 THB/package): 1	
+	system("cls")
+
+
+                                *************************
+
+                                      Booking detail
+
+                                *************************
+
+Name : Poosana
+Phone Number : 063414
+
+Room                    : Standard
+guest                   : 2 people
+Check in date           : 2/2/2021
+Check out date          : 3/2/2021
+Duration Stayed         : 367
+
+Room Price              : 1300THB
+Additional fees         : 250THB
+Service tax (7%)        : 17.5THB
+Final Total             : 1567.5THB
+---------------------------------------------
+Please select you payment method (1.cash / 2.Credit card)
+1
+Booking done,Thank you.
+
+Do you want to book another room?(yes/no): yes
+(เริ่มระบบใหม่)
