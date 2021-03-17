@@ -17,13 +17,12 @@ void checkCreditcard(string name){
     while(e != 16){
         cout<<"Seem like you have pressed wrong number.Please press again: ";
         cin>>a;
-        e = a.size()+b.size()+c.size()+d.size();
     }
     cout<<"------------------------------\n";
     cout<<"\t\t Reciept.\n";
     cout<<"------------------------------\n";
-    cout<<"Card owner: "<<name<<endl;
-    cout<<"Card number: "<<a<<" "<<b<<" "<<c<<" "<<d;
+    cout<<"Card owner \t\t\t: "<<name<<endl;
+    cout<<"Card number \t\t\t: "<<a<<" "<<b<<" "<<c<<" "<<d;
     cout<<"\nPayment done,Thank you.";
 }
 
@@ -281,6 +280,7 @@ start:
     if(more == "YES" || more == "yes"){
     	goto start;
 	}else{
-	return 0; 
+		cout<<"Wish you have the best vacation.\n";
+		return 0; 
 	}	
 }
