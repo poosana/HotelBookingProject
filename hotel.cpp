@@ -116,6 +116,7 @@ double date(int day1, int month1, int year, int day2, int month2, int year4, int
 
 int main()
 {
+    system("color f8");
     string name;
     string phonenum;
     string add;
@@ -145,16 +146,21 @@ start:
 
     cout << day1 << "/" << month1 << "/" << year1 << endl;
     cin.ignore();
+    cout<< endl;
     cout << "Enter your name: " << endl;
     getline(cin, name);
+    cout<< endl;
     cout << "Enter your phone Number: " << endl;
     cin >> phonenum;
+    cout<< endl;
     cout << "How many guest is the reservation for:  " << endl;
     cin >> people;
+    cout<< endl;
     cout << "Choose room type" << endl;
     cout << "Press '1' for standard room (1300 THB/night)" << endl;
     cout << "Press '2' for deluxe room (3200 THB/night)" << endl;
     cin >> room;
+    cout<< endl;
      if(room == 1){
     	cout << "Standard room aviable: ";
     	for(i = 0; i < 5; i++){
@@ -189,6 +195,7 @@ start:
 			}	
 		}
 	}
+	cout<< endl;
     cout << "Enter your check out date: " << endl;
     cin >> day2 >> month2 >> year2;
     year4 = year2 - 1900;
@@ -264,7 +271,7 @@ start:
     system("cls");
     detail(sum, addf, name, phonenum, room,roomSelect, people, day1, month1, year1, day2, month2, year2, days);
     string choice;
-    cout << "Please select you payment method (1.cash / 2.Credit card)" << endl;
+    cout << "Please select your payment method (1.cash / 2.Credit card)" << endl;
     cin >> choice;
     if (choice == "1")
     {
