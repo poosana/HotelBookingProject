@@ -9,20 +9,20 @@ using namespace std;
 
 
 void checkCreditcard(string name){
-	string cardtype;    
-	string a,b,c,d;
+	string a;
     cout<<"Please press card number: ";
-    cin>>a >>b>>c>>d;
-    int e = a.size()+b.size()+c.size()+d.size();
-    while(e != 16){
+    cin>>a; 
+    int c = a.size();
+    while(c != 16){
         cout<<"Seem like you have pressed wrong number.Please press again: ";
         cin>>a;
+        c = a.size();
     }
-    cout<<"------------------------------\n";
+    cout<<"---------------------------------------------\n";
     cout<<"\t\t Reciept.\n";
-    cout<<"------------------------------\n";
+    cout<<"---------------------------------------------\n";
     cout<<"Card owner \t\t\t: "<<name<<endl;
-    cout<<"Card number \t\t\t: "<<a<<" "<<b<<" "<<c<<" "<<d;
+    cout<<"Card number \t\t\t: "<<a;
     cout<<"\nPayment done,Thank you.";
 }
 
