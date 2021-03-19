@@ -5,8 +5,10 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
-using namespace std;
+#include <windows.h>
+using namespace std;	
 
+HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void checkCreditcard(string name){
 	string a;
@@ -18,11 +20,13 @@ void checkCreditcard(string name){
         cin>>a;
         c = a.size();
     }
+    cout<<endl;
     cout<<"---------------------------------------------\n";
     cout<<"\t\t Reciept.\n";
     cout<<"---------------------------------------------\n";
     cout<<"Card owner \t\t\t: "<<name<<endl;
     cout<<"Card number \t\t\t: "<<a;
+    cout<<endl;
     cout<<"\nPayment done,Thank you.";
 }
 
@@ -66,12 +70,26 @@ void detail(double sum, double addf, string name, string phonenum, int room,stri
     {
         room_type = "Deluxe";
     }
+	
 
-    cout << "\t\t\t\t*************************\n"
-         << endl;
+    cout << "\t\t\t\t";
+      for(int i = 1;i<12;i++){
+    		 SetConsoleTextAttribute(h,i);
+    	cout<<"**";
+}
+	   
+     SetConsoleTextAttribute(h,15);
+        cout<<endl;
     cout << "\t\t\t\t      Booking detail" << endl;
-    cout << "\n\t\t\t\t*************************" << endl
-         << endl;
+    cout << "\t\t\t\t";
+      for(int i = 1;i<12;i++){
+    		 SetConsoleTextAttribute(h,i);
+    	cout<<"**";
+}
+	    SetConsoleTextAttribute(h,15);
+    cout << "\n\t\t\t\t";
+       cout<<endl;
+          SetConsoleTextAttribute(h,15);
     cout << "Name : " << name << endl;
     cout << "Phone Number : " << phonenum << endl
          << endl;
@@ -86,9 +104,12 @@ void detail(double sum, double addf, string name, string phonenum, int room,stri
     cout << "Additional fees \t: " << addf << " THB" << endl;
     cout << "Service tax (7%)\t: " << tax << " THB" << endl;
     cout << "Final Total \t\t: " << total << " THB" << endl;
-    cout<<"---------------------------------------------" << endl;
+     for(int i = 1;i<16;i++){
+    		 SetConsoleTextAttribute(h,i);
+    	cout<<"--";
+    }
+	cout<<endl;
 }
-
 
 double date(int day1, int month1, int year, int day2, int month2, int year4, int room)
 {
@@ -104,9 +125,6 @@ double date(int day1, int month1, int year, int day2, int month2, int year4, int
     if (x != (std::time_t)(-1) && y != (time_t)(-1))
     {
         double difference = difftime(y, x) / (60 * 60 * 24);
-        cout << ctime(&x);
-        cout << ctime(&y);
-        cout << "difference = " << difference << " days" << endl;
         days = difference;
     }
 
@@ -115,8 +133,8 @@ double date(int day1, int month1, int year, int day2, int month2, int year4, int
 }
 
 int main()
-{
-    system("color f8");
+{	
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
     string name;
     string phonenum;
     string add;
@@ -129,13 +147,32 @@ int main()
     int day2, month2, year2;
     int i, year, year4;
 start:
-    cout << "\n\t\t\t\t   Welcome to TPC hotel.";
-    cout << "\n\t\t\t\tDue to covid-19 situation.";
-    cout << "\n\t\t\t     We have create an online service .\n";
-    cout << "\n\t\t\t\t*************************";
-    cout << "\n\t\t\t\t HOTEL BOOKING SERVICE ";
-    cout << "\n\t\t\t\t      * MAIN MENU *";
-    cout << "\n\t\t\t\t*************************";
+	 SetConsoleTextAttribute(h,14);
+	cout<<"\n\t\t\t\t\t      ------------------------------";
+     SetConsoleTextAttribute(h,15);
+    cout<<"\n\t\t\t\t\t      |                             |\n";
+    cout << "\t\t\t\t\t      |    Welcome to TPC hotel.    |";
+     SetConsoleTextAttribute(h,14);
+    cout<<"\n\t\t\t\t\t      -------------------------------\n";
+     SetConsoleTextAttribute(h,11);
+    cout << "\n\t\t\t\t\t\tDue to covid-19 situation.";
+    cout << "\n\t\t\t\t\t    We have create an online service .\n";
+    SetConsoleTextAttribute(h,10);
+    cout<<"\n\t\t\t\t\t\t";
+    for(int i = 1;i<12;i++){
+    		 SetConsoleTextAttribute(h,i);
+    	cout<<"**";
+	}
+    SetConsoleTextAttribute(h,15);
+    cout << "\n\t\t\t\t\t\t HOTEL BOOKING SERVICE ";
+    cout << "\n\t\t\t\t\t\t      * MAIN MENU *";
+     SetConsoleTextAttribute(h,10);
+    cout << "\n\t\t\t\t\t\t";
+     for(int i = 1;i<12;i++){
+    		 SetConsoleTextAttribute(h,i);
+    	cout<<"**";
+}
+	    SetConsoleTextAttribute(h,15);
 
     cout << "\n\nEnter the check in date:\n"
          << endl;
@@ -143,6 +180,8 @@ start:
     cin >> day1 >> month1 >> year1;
     year = year1 - 1900;
     system("cls");
+	
+	SetConsoleTextAttribute(h,15);
 
     cout << day1 << "/" << month1 << "/" << year1 << endl;
     cin.ignore();
@@ -271,8 +310,10 @@ start:
     system("cls");
     detail(sum, addf, name, phonenum, room,roomSelect, people, day1, month1, year1, day2, month2, year2, days);
     string choice;
+    SetConsoleTextAttribute(h,15);
     cout << "Please select your payment method (1.cash / 2.Credit card)" << endl;
     cin >> choice;
+    cout<<endl;
     if (choice == "1")
     {
         cout<<"Booking done,Thank you.";
